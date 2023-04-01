@@ -51,6 +51,7 @@ mongoose
     // ProductStat.insertMany(dataProductStat);
     // Transaction.insertMany(dataTransaction);
 
+    //data already added
     // User.insertMany(dataUser)
 
   })
