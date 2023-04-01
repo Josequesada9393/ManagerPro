@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   LightModeOutlined,
   DarkModeOutlined, Menu as MenuIcon,
@@ -23,7 +23,9 @@ import {AppBar,
 
 
 
-function Navbar() {
+function Navbar({
+  isSidebarOpen, setIsSidebarOpen
+}) {
   const dispatch = useDispatch()
   const theme = useTheme()
 
@@ -41,7 +43,8 @@ function Navbar() {
                 {/* LEFT SIDE */}
 
       <FlexBetween>
-        <IconButton onClick={() => console.log('open/close sidebar')}>
+          <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)
+          }>
           <MenuIcon/>
         </IconButton>
         <FlexBetween
@@ -59,6 +62,7 @@ function Navbar() {
         </FlexBetween>
 
         {/* RIGHT SIDE */}
+        <FlexBetween>
 
         <IconButton onClick={() => dispatch(setMode())}>
           {
@@ -73,7 +77,8 @@ function Navbar() {
         </IconButton>
         <IconButton>
           <SettingsOutlined sx={{fontSize: '25px'}} />
-        </IconButton>
+          </IconButton>
+          </FlexBetween>
         </Toolbar>
     </AppBar>
   )

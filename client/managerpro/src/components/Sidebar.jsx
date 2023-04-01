@@ -93,25 +93,24 @@ const navItems = [
   },
 ];
 
-function Sidebar({
+const Sidebar = ({
   user,
   drawerWidth,
   isSidebarOpen,
   setIsSidebarOpen,
   isNonMobile,
-}) {
-
-  const { pathName } = useLocation();
-  const [active, setActive] = useState("")
+}) => {
+  const { pathname } = useLocation();
+  const [active, setActive] = useState("");
   const navigate = useNavigate();
-  const theme = useTheme()
+  const theme = useTheme();
 
   useEffect(() => {
-    setActive('pathName.substring(1)')
-  },[pathName])
+    setActive(pathname.substring(1));
+  }, [pathname]);
 
   return (
-     <Box component="nav">
+    <Box component="nav">
       {isSidebarOpen && (
         <Drawer
           open={isSidebarOpen}
@@ -134,7 +133,7 @@ function Sidebar({
               <FlexBetween color={theme.palette.secondary.main}>
                 <Box display="flex" alignItems="center" gap="0.5rem">
                   <Typography variant="h4" fontWeight="bold">
-                    ECOMVISION
+                   InfoPortal
                   </Typography>
                 </Box>
                 {!isNonMobile && (
@@ -213,13 +212,13 @@ function Sidebar({
                   fontSize="0.9rem"
                   sx={{ color: theme.palette.secondary[100] }}
                 >
-                  {'user.name'}
+                  {user.name}
                 </Typography>
                 <Typography
                   fontSize="0.8rem"
                   sx={{ color: theme.palette.secondary[200] }}
                 >
-                  {'user.occupation'}
+                  {user.occupation}
                 </Typography>
               </Box>
               <SettingsOutlined
@@ -236,6 +235,4 @@ function Sidebar({
   );
 };
 
-
-
-export default Sidebar
+export default Sidebar;

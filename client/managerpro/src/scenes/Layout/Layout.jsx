@@ -6,26 +6,31 @@ import Navbar from 'components/Navbar'
 import Sidebar from 'components/Sidebar'
 
 
-
-function Layout() {
-  //returns a boolean if it is mobile or not, then we use that to adjust layout
+const Layout = () => {
   const isNonMobile = useMediaQuery("(min-width: 600px)");
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true)
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  // const userId = useSelector((state) => state.global.userId);
+  // const { data } = useGetUserQuery(userId);
+
   return (
-    <Box display={isNonMobile ? 'flex' : 'block'} width={'100%'} height={'100%'} >
+    <Box display={isNonMobile ? "flex" : "block"} width="100%" height="100%">
       <Sidebar
+        user={ {}}
         isNonMobile={isNonMobile}
-        drawerWith='250px'
+        drawerWidth="250px"
         isSidebarOpen={isSidebarOpen}
-        setIsSidebarOpen={setIsSidebarOpen}/>
-      <Box>
+        setIsSidebarOpen={setIsSidebarOpen}
+      />
+      <Box flexGrow={1}>
         <Navbar
+          user={ {}}
           isSidebarOpen={isSidebarOpen}
-        setIsSidebarOpen={setIsSidebarOpen} />
-        <Outlet/>
+          setIsSidebarOpen={setIsSidebarOpen}
+        />
+        <Outlet />
       </Box>
     </Box>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
