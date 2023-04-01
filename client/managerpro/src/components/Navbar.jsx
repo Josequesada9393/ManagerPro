@@ -24,7 +24,7 @@ import {AppBar,
 
 
 function Navbar({
-  isSidebarOpen, setIsSidebarOpen
+  isSidebarOpen, setIsSidebarOpen, user
 }) {
   const dispatch = useDispatch()
   const theme = useTheme()
