@@ -2,13 +2,13 @@ import React from 'react'
 import { Box, useTheme } from "@mui/material";
 
 import Header from 'components/Header';
-// import useGetCustomersQuery from '../../state/api'
+import {useGetCustomersQuery} from '../../state/api'
 import { DataGrid } from '@mui/x-data-grid';
 
 
 const Customers = () => {
   const theme = useTheme();
-  // const { data, isLoading } = useGetCustomersQuery();
+  const { data, isLoading } = useGetCustomersQuery();
 
 
   const columns = [
@@ -83,12 +83,12 @@ const Customers = () => {
           },
         }}
       >
-        {/* <DataGrid
-          loading={'isLoading' || !data}
+         <DataGrid
+          loading={isLoading || !data}
           getRowId={(row) => row._id}
-          rows={'data' || []}
+          rows={data || []}
           columns={columns}
-        /> */}
+        />
       </Box>
     </Box>
   );
