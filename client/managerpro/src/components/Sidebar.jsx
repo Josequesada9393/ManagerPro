@@ -135,6 +135,7 @@ const Sidebar = ({
                 <Box display="flex" alignItems="center" gap="0.5rem">
                   <Typography variant="h4" fontWeight="bold">
                     ThePortal
+                    2:19
                   </Typography>
                 </Box>
                 {!isNonMobile && (

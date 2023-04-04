@@ -6,12 +6,11 @@ import { useMemo } from 'react';
 import { BrowserRouter, Navigate, Routes, Route } from 'react-router-dom';
 import Dashboard from './scenes/Dashboard/Dashboard.jsx'
 import Layout from "scenes/Layout/Layout.jsx"
+import Products from 'scenes/Products/Products.jsx'
 import React from 'react';
 
 
 function App() {
-
-
 
   const mode = useSelector((state) => state.global.mode);
   //only change the theme when the mode state in the global state changes. Otherwise, memoize
@@ -26,6 +25,7 @@ function App() {
             <Route element={<Layout/>}>
               <Route path='/' element={<Navigate to="/dashboard" replace />} />
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path='/products' element={<Products/>}/>
             </Route>
           </Routes>
        </ThemeProvider>
