@@ -7,6 +7,7 @@ import { BrowserRouter, Navigate, Routes, Route } from 'react-router-dom';
 import Dashboard from './scenes/Dashboard/Dashboard.jsx'
 import Layout from "scenes/Layout/Layout.jsx"
 import Products from 'scenes/Products/Products.jsx'
+import Customers from 'scenes/Customers/Customers';
 import React from 'react';
 
 
@@ -26,6 +27,7 @@ function App() {
               <Route path='/' element={<Navigate to="/dashboard" replace />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path='/products' element={<Products/>}/>
+              <Route path='/customers' element={<Customers/>}/>
             </Route>
           </Routes>
        </ThemeProvider>
