@@ -9,6 +9,7 @@ import Layout from "scenes/Layout/Layout.jsx"
 import Products from 'scenes/Products/Products.jsx'
 import Customers from 'scenes/Customers/Customers';
 import React from 'react';
+import Transactions from 'scenes/Transactions/Transactions';
 
 
 function App() {
@@ -28,6 +29,8 @@ function App() {
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path='/products' element={<Products/>}/>
               <Route path='/customers' element={<Customers/>}/>
+              <Route path='/transactions' element={<Transactions/>}/>
+
             </Route>
           </Routes>
        </ThemeProvider>
