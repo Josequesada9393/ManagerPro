@@ -35,17 +35,16 @@ app.use('/client', clientRoutes)
 app.use("/management", managementRoutes)
 app.use("/general", generalRoutes)
 app.use("/sales", salesRoutes)
-console.log(dataUser)
 // MONGOOSE SET UP
-const PORT = process.env.PORT || 9000
+const PORT = 9000
 mongoose
-  .connect(process.env.MONGO_URL, {
+  .connect("mongodb://localhost:27017", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
   .then(() => {
     app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
-
+    console.log('connected')
     /* ONLY ADD DATA ONE TIME */
     // AffiliateStat.insertMany(dataAffiliateStat);
     // OverallStat.insertMany(dataOverallStat);
