@@ -25,7 +25,7 @@ const Product = ({
       sx={{
         backgroundImage: "none",
         backgroundColor: theme.palette.background.alt,
-        borderRadius: "0.55rem",
+        borderRadius: "0.9rem",
       }}
     >
       <CardContent>
@@ -80,7 +80,6 @@ const Product = ({
 
 const Products = () => {
   const { data, isLoading } = useGetProductsQuery();
-  console.log('aaaaaaaa', data)
   const isNonMobile = useMediaQuery("(min-width: 1000px)");
 
   return (

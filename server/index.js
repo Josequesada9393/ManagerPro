@@ -14,7 +14,8 @@ import salesRoutes from "./routes/sales.js"
 import User from './models/User.js'
 import Product from './models/Product.js'
 import ProductStat from './models/ProductStat.js'
-import {dataUser, dataProduct, dataProductStat} from './data/index.js'
+import Transaction from './models/Transactions.js'
+import {dataUser, dataProduct, dataProductStat, dataTransaction} from './data/index.js'
 
 //Configuration//
 
@@ -38,7 +39,7 @@ app.use("/sales", salesRoutes)
 // MONGOOSE SET UP
 const PORT = 9000
 mongoose
-  .connect("mongodb://localhost:27017", {
+  .connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
