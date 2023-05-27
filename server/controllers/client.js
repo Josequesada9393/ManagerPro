@@ -79,19 +79,30 @@ export const getTransactions = async (req, res) => {
 };
 
 
-export const getGeography = async (req, res) {
+export const getGeography = async (req, res) => {
     try {
       const users = await User.find();
 
-      const mappedLocations = users.reduce((acc, {country}) => {
-        const countryISO3 = getCountryIso3(country);
-        if (!acc[countryISO3]){
-          acc[countryISO3] = 0;
+  //     const mappedLocations = users.reduce((acc, {country}) => {
+  //       const countryISO3 = getCountryIso3(country);
+  //       if (!acc[countryISO3]){
+  //         acc[countryISO3] = 0;
 
-        }
-        acc[countryISO3]++;
-        return acc;
-      }, {});
+  //       }
+  //       acc[countryISO3]++;
+  //       return acc;
+  //     }, {});
+
+  const mappedLocations = users.reduce((acc, {country}) => {
+    const isoCountry = getCountryIso3(country)
+    if (!acc[isoCountry]){
+      acc[isoCountry] = 1;
+    } else {
+      acc[isoCountry]++
+    }
+    return acc
+  }, {});
+
 
   const formattedLocations = Object.entries(mappedLocations).map((
         [country, count]) => {

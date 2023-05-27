@@ -10,6 +10,7 @@ import Products from 'scenes/Products/Products.jsx'
 import Customers from 'scenes/Customers/Customers';
 import React from 'react';
 import Transactions from 'scenes/Transactions/Transactions';
+import Geography from 'scenes/Geography/Geography'
 
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
               <Route path='/products' element={<Products/>}/>
               <Route path='/customers' element={<Customers/>}/>
               <Route path='/transactions' element={<Transactions/>}/>
-
+              <Route path='/geography' element={<Geography/>}/>
             </Route>
           </Routes>
        </ThemeProvider>
