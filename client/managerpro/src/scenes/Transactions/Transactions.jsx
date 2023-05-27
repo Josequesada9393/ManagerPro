@@ -12,7 +12,7 @@ function Transactions() {
   //values to be sent to backend
 
   const [page, setPage] = useState(0);
-  const [pageSize, setPageSize] = useState(20);
+  const [pageSize, setPageSize] = useState(10);
   const [sort, setSort] = useState({});
   const [search, setSearch] = useState("");
 
