@@ -11,8 +11,8 @@ import Customers from 'scenes/Customers/Customers';
 import React from 'react';
 import Transactions from 'scenes/Transactions/Transactions';
 import Geography from 'scenes/Geography/Geography'
-import Overview from "scenes/Overview/Overview"
 
+import Overview from 'scenes/Overview/Overview';
 
 function App() {
 

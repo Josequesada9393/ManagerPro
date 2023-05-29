@@ -3,10 +3,9 @@ import { ResponsiveLine } from "@nivo/line";
 import { useTheme } from "@mui/material";
 import { useGetSalesQuery } from "state/api";
 
-const OverviewChart = ({ isDashboard = false, view }) => {
+const OverviewChart = ({ isDashboard = true, view }) => {
   const theme = useTheme();
   const { data, isLoading } = useGetSalesQuery();
-
 
   const [totalSalesLine, totalUnitsLine] = useMemo(() => {
     if (!data) return [];
@@ -23,10 +22,11 @@ const OverviewChart = ({ isDashboard = false, view }) => {
       data: [],
     };
 
-    monthlyData.reduce(
+    Object.values(monthlyData).reduce(
       (acc, { month, totalSales, totalUnits }) => {
         const curSales = acc.sales + totalSales;
         const curUnits = acc.units + totalUnits;
+
         totalSalesLine.data = [
           ...totalSalesLine.data,
           { x: month, y: curSales },
@@ -45,7 +45,7 @@ const OverviewChart = ({ isDashboard = false, view }) => {
   }, [data]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!data || isLoading) return "Loading...";
-
+  console.log(totalSalesLine)
   return (
     <ResponsiveLine
       data={view === "sales" ? totalSalesLine : totalUnitsLine}
