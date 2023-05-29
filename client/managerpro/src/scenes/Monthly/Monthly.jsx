@@ -24,13 +24,13 @@ function Monthly() {
 
     let finalSales = {
         id: "totalSales",
-        color: "red",
+        color: 'red',
         data: salesData
     }
 
     let finalUnits = {
         id: "totalUnits",
-        color: "green",
+        color: theme.palette.secondary[600],
         data: unitsData
     }
     // const monthlyUnitSales = 
