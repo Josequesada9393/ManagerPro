@@ -15,7 +15,6 @@ function Transactions() {
   const [pageSize, setPageSize] = useState(10);
   const [sort, setSort] = useState({});
   const [search, setSearch] = useState("");
-
   const [searchInput, setSearchInput] = useState("")
   
 
