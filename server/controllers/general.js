@@ -49,11 +49,11 @@ export const getDashboardStats = async (req, res) => {
      res.status(200).json({totalCustomers, 
       yearlySalesTotal,
       yearlyTotalSoldUnits, 
-       monthlyData,
-       salesByCategory,
+      monthlyData,
+      salesByCategory,
       thisMonthStats,
-    todayStats,
-  transactions})
+      todayStats,
+      transactions})
 
   } catch (error) {
     
