@@ -15,25 +15,24 @@ export const getAdmins = async (req, res) => {
 
   export const getUserPerformance = async (req, res) => {
     try {
-      const {id} = req.params;
-      const userWithStats = await User.aggretate([
-        // we find the user with that particular ID,
-        //we make sure that the ID matches the mongoDB ObjectId object
-        {$match: {_id: new mongoose.Types.ObjectId(id)}},
+      const {id} = await req.params;
+
+      const userWithStats = await User.aggregate([
+        { $match: { _id: new mongoose.Types.ObjectId(id) } },
+            //   // we find the user with that particular ID,
+      //   //we make sure that the ID matches the mongoDB ObjectId object
         {
           $lookup: {
-            //compare the User table with localfield _id with
-            //affiliateStats table with userID, return results as affiliateStats model
-            from: 'affiliatestats',
+               //       //compare the User table with localfield _id with
+      //       //affiliateStats table with userID, return results as affiliateStats model
+            from: "affiliatestats",
             localField: "_id",
             foreignField: "userId",
-            as: "affiliateStats"
-          }
+            as: "affiliateStats",
+          },
         },
-        //flaten the information
-        {$unwind: "$affiliateStats"}
+        { $unwind: "$affiliateStats" },
       ]);
-
       const saleTransaction = await Promise.all(
            userWithStats[0].affiliateStats.affiliateSales.map((id) => {
           return Transaction.findById(id)
