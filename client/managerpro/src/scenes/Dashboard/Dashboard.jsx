@@ -138,7 +138,7 @@ function Dashboard() {
           sx={{
             "& .MuiDataGrid-root": {
               border: "none",
-              borderRadius: "5rem",
+              borderRadius: "1rem",
             },
             "& .MuiDataGrid-cell": {
               borderBottom: "none",
@@ -161,7 +161,7 @@ function Dashboard() {
             },
           }}
         >
-          <DataGrid
+      <DataGrid
             loading={isLoading || !data}
             getRowId={(row) => row._id}
             rows={(data && data.transactions) || []}
@@ -173,7 +173,7 @@ function Dashboard() {
           gridRow="span 3"
           backgroundColor={theme.palette.background.alt}
           p="1.5rem"
-          borderRadius="0.55rem"
+          borderRadius="0.5rem"
         >
           <Typography variant="h6" sx={{ color: theme.palette.secondary[100] }}>
             Sales By Category

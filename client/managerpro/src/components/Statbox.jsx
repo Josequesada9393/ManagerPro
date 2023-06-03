@@ -32,7 +32,7 @@ const StatBox = ({ title, value, increase, icon, description }) => {
       </Typography>
       <FlexBetween gap="1rem">
         <Typography
-          variant="h5"
+          variant="h6"
           fontStyle="italic"
           sx={{ color: theme.palette.secondary.light }}
         >
